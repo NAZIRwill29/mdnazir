@@ -1,0 +1,16 @@
+/* Rotate first bar */
+.change .bar1 {
+  -webkit-transform: rotate(-45deg) translate(-0.6rem, 0.6rem);
+  transform: rotate(-45deg) translate(-0.6rem, 0.6rem);
+}
+// -webkit-transform: rotate(-45deg) translate(-8px, 8px) ;
+/* Fade out the second bar */
+.change .bar2 {
+  opacity: 0;
+}
+// -webkit-transform: rotate(45deg) translate(-8px, -8px) ;
+/* Rotate last bar */
+.change .bar3 {
+  -webkit-transform: rotate(45deg) translate(-0.25rem, -0.15rem);
+  transform: rotate(45deg) translate(-0.25rem, -0.15rem);
+}

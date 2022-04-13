@@ -1,0 +1,437 @@
+@import "config";
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: $Background;
+  font-family: $font-stack2;
+  line-height: 1.6;
+  font-size: 16px;
+}
+
+img {
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+h1,
+h2 {
+  font-size: 20px;
+  line-height: 30px;
+  font-weight: bold;
+  font-family: $font-stack1;
+  text-align: center;
+}
+h2 {
+  font-size: 18px;
+}
+
+.nav {
+  padding: 10px;
+  background-color: $Background;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 2;
+  width: 100%;
+
+  .logo img {
+    width: 2.5rem;
+  }
+
+  .container {
+    display: inline-block;
+    padding: 5px 0 0;
+    cursor: pointer;
+    position: absolute;
+    right: 0.8em;
+    top: 10px;
+    background-color: $Background;
+
+    .bar1,
+    .bar2,
+    .bar3 {
+      width: 2rem;
+      height: 0.2rem;
+      background-color: $Text;
+      margin: 6px 0;
+      transition: 0.4s;
+    }
+  }
+
+  @import "navbtn";
+
+  .navigation {
+    background-color: $Background;
+    position: absolute;
+    left: 0;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    visibility: hidden;
+    height: 0;
+    transform: translateY(-300px);
+    transition: transform 0.6s ease-out, height 1.25s ease-out, visibility 2s;
+
+    a {
+      padding: 2px;
+      text-align: center;
+      color: $Text;
+    }
+  }
+
+  .navigation.active {
+    transform: translateY(0px);
+    transition: transform 1s ease-out, height 0.2s ease-out, visibility 2s;
+    visibility: visible;
+    height: 120px;
+  }
+}
+
+header {
+  margin-top: 60px;
+  .profile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    &-pic {
+      background: $Silver-cyan url(../images/profile-pic.png);
+      border: 0.4rem $Primary-L solid;
+      width: 42vw;
+      height: 42vw;
+      max-width: 80vh;
+      max-height: 80vh;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+  }
+  .web {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .logo-web {
+      width: 12.5vw;
+      height: 12.5vw;
+      max-width: 23vh;
+      max-height: 23vh;
+      margin: 1vw;
+      border-radius: 0.5em;
+      border: 1vw $Primary-L solid;
+      background: url(../images/logo-header/vsc.png);
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+    .figma {
+      background: url(../images/logo-header/figma.png);
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+    .wordpress {
+      background: url(../images/logo-header/wordpress.png);
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+  }
+  .detail {
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .welcome {
+      padding: 5px 10px;
+      background-color: $Silver;
+      border-radius: 40rem;
+      display: inline-block;
+      margin: 5px;
+    }
+    h1 {
+      margin: 5px;
+      .designer {
+        color: $Primary-L;
+      }
+      .developer {
+        color: $Secondary-L;
+      }
+    }
+    p {
+      margin: 5px;
+      text-align: center;
+      color: $Silver-text;
+    }
+    button {
+      margin: 5px;
+    }
+  }
+}
+
+section {
+  margin: 20px;
+  border-radius: 1rem;
+  padding: 10px;
+}
+
+.proj-serv {
+  background-color: $Primary-L;
+  color: $Background;
+  .serv {
+    padding: 10px 5px;
+    &-title {
+      h2 {
+        margin-bottom: 5px;
+      }
+      p {
+        margin: 5px;
+        text-align: center;
+      }
+    }
+    &-desc {
+      display: grid;
+      grid-template-columns: 50% 50%;
+      .serv-container {
+        padding: 3px 5px;
+        margin: 10px;
+        background-color: $Background;
+        border-radius: 1rem;
+        p {
+          text-align: center;
+          color: $Text;
+          font-weight: bold;
+          font-size: 0.8rem;
+        }
+      }
+    }
+  }
+  .proj {
+    padding: 10px 5px;
+    &-title {
+      h2 {
+        margin-bottom: 5px;
+      }
+      p {
+        margin: 5px;
+        text-align: center;
+      }
+    }
+    &-desc {
+      //   div {
+      //     padding: 3px 5px;
+      //     margin: 10px;
+      //     background-color: $Background;
+      //     border-radius: 1rem;
+      //     height: 300px; // TODO
+      //   }
+
+      @import "carousel";
+    }
+  }
+}
+
+.faq-contact {
+  background-color: $Secondary-L;
+  color: $Background;
+  .faq {
+    padding: 10px 15px;
+    &-title {
+      h2 {
+        margin-bottom: 5px;
+      }
+    }
+    &-desc {
+      .faq-container {
+        .btn-faq {
+          border-radius: 4rem;
+          background-color: $Secondary-D;
+          width: 100%;
+          text-align: left;
+          padding: 0.5rem 2rem 0.5rem 0.5rem;
+          margin: 10px 0;
+          font-size: 18px;
+        }
+        .btn-faq::after {
+          content: "";
+          width: 30px;
+          height: 30px;
+          background: url("../images/arrow.svg") no-repeat;
+          background-size: 1.75rem;
+          right: 1rem;
+          position: absolute;
+          display: inline-block;
+          transition: transform 1s ease-out;
+        }
+      }
+
+      //   .btn-faq:hover {
+      //     transform: scale(1.01);
+      //   }
+
+      .transform::after {
+        transform: rotate(180deg);
+        transition: transform 1s ease-out;
+      }
+
+      .container-faq-answer {
+        /* visibility: hidden; */
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.7s ease-out;
+        font-size: 16px;
+      }
+
+      .container-faq-answer.active {
+        /* visibility: visible; */
+        max-height: 700px;
+        transition: max-height 0.7s ease-in;
+        ul {
+          padding: 10px 30px;
+        }
+      }
+    }
+  }
+  .contact {
+    padding: 10px 15px;
+    display: grid;
+    grid-template-columns: auto;
+    .email {
+      h2 {
+        background-color: $Secondary-D;
+        border-radius: 1rem;
+        padding: 5px;
+        width: fit-content;
+        margin: 10px auto;
+      }
+      form {
+        background-color: $Background;
+        color: $Text;
+        margin: 10px 0;
+        border-radius: 1rem;
+        padding: 5px 10px;
+        div {
+          padding: 5px;
+          display: flex;
+          flex-direction: column;
+          input {
+            padding: 3px;
+          }
+        }
+        button {
+          max-width: 100px;
+          margin: 5px auto;
+          font-size: 16px;
+          background-color: $Primary-L;
+          border-color: $Primary-D;
+        }
+        button:hover {
+          background-color: $Primary-D;
+          border-color: $Primary-D;
+        }
+      }
+    }
+    .cta {
+      padding: 0 20px;
+      display: flex;
+      .work {
+        display: flex;
+        align-items: center;
+        button {
+          width: 30%;
+          min-height: 180px;
+          min-width: 150px;
+          margin: 5px auto;
+          background-color: $Background;
+          border-color: green;
+          a {
+            color: green;
+            font-weight: 500;
+            font-size: 18px;
+            text-align: center;
+          }
+        }
+      }
+      .messenger {
+        button {
+          border-color: $Primary-D;
+          a {
+            color: $Primary-D;
+          }
+        }
+      }
+    }
+  }
+}
+
+footer {
+  display: grid;
+  padding: 5px;
+  grid-template-columns: auto;
+  h3 {
+    text-align: center;
+    font-size: 16px;
+  }
+  .footer-logo-section {
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    img {
+      width: 50%;
+    }
+    h3 {
+      margin-top: -10px;
+    }
+  }
+  .footer-description-section {
+    padding: 15px 20px 10px;
+    p {
+      text-align: center;
+    }
+  }
+  .footer-useful-link-section {
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    a {
+      text-decoration: underline;
+    }
+  }
+  .footer-social-media-section {
+    padding: 15px 20px 10px;
+    div {
+      display: flex;
+      align-items: center;
+      padding: 0 15px;
+      a {
+        margin: 10px 10px;
+        img {
+          min-width: 15px;
+        }
+      }
+    }
+  }
+  .copyright {
+    text-align: center;
+  }
+}
+
+@import "button";
+@import "desktop";
+@import "animation";
